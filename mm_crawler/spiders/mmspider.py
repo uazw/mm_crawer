@@ -30,5 +30,5 @@ class MmspiderSpider(CrawlSpider):
         pat = re.compile(r'arrayImg\[0\]="(.*?)";')
         ma = pat.search(response.body)
         if ma:
-            imageItem['image_urls'] = ma.group(1)
+            imageItem['image_urls'] = (ma.group(1), )
             yield imageItem

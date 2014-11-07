@@ -61,13 +61,13 @@ class startSpider(object):
         if self.num:
             settings.set('CONCURRENT_REQUESTS', self.num)
         print settings
-        #crawler = Crawler(settings)
-        # crawler.signals.connect(reactor.stop, signal=signals.spider_closed)
-        # crawler.configure()
-        # crawler.crawl(spider)
-        # crawler.start()
-        # log.start()
-        # reactor.run()
+        crawler = Crawler(settings)
+        crawler.signals.connect(reactor.stop, signal=signals.spider_closed)
+        crawler.configure()
+        crawler.crawl(spider)
+        crawler.start()
+        log.start()
+        reactor.run()
 
 if __name__ == "__main__":
     startSpider().main()
