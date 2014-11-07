@@ -15,7 +15,7 @@ NEWSPIDER_MODULE = 'mm_crawler.spiders'
 ITEM_PIPELINES = {'scrapy.contrib.pipeline.images.ImagesPipeline': 1}
 IMAGES_STORE = 'pics'
 DOWNLOAD_DELAY = 0.1
-CONCURRENT_REQUESTS = 10
+CONCURRENT_REQUESTS = 1
 USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) \
 AppleWebKit/537.36 (KHTML, like Gecko) \
 Ubuntu Chromium/37.0.2062.120 Chrome/37.0.2062.120 Safari/537.36'

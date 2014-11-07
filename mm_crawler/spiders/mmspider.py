@@ -3,7 +3,7 @@ import scrapy
 from scrapy.contrib.linkextractors import LinkExtractor
 from scrapy.contrib.spiders import CrawlSpider, Rule
 import re
-from items import ImageItem
+from mm_crawler.items import ImageItem
 
 
 class MmspiderSpider(CrawlSpider):
@@ -27,6 +27,8 @@ class MmspiderSpider(CrawlSpider):
 
     def image_link_getter(self, response):
         imageItem = ImageItem()
-        re.compile(r'arrayImg\[0\]="(.*)";')
+        pat = re.compile(r'arrayImg\[0\]="(.*?)";')
         ma = pat.search(response.body)
-        imageItem['image_urls'] = ma.group(1)
+        if ma:
+            imageItem['image_urls'] = ma.group(1)
+            yield imageItem
