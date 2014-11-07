@@ -3,7 +3,7 @@ import scrapy
 from scrapy.contrib.linkextractors import LinkExtractor
 from scrapy.contrib.spiders import CrawlSpider, Rule
 import re
-from mm_crawler.items import ImageItem
+from items import ImageItem
 
 
 class MmspiderSpider(CrawlSpider):

@@ -60,7 +60,8 @@ class startSpider(object):
             settings.set('IMAGES_STORE', self.file)
         if self.num:
             settings.set('CONCURRENT_REQUESTS', self.num)
-        print settings
+        print settings.get('IMAGES_STORE'), settings.get('CONCURRENT_REQUESTS')
+
         crawler = Crawler(settings)
         crawler.signals.connect(reactor.stop, signal=signals.spider_closed)
         crawler.configure()
